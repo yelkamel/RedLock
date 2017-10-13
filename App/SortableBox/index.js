@@ -305,6 +305,7 @@ const styles = StyleSheet.create({
     top:0,
     borderWidth: Metrics.pixel,
     borderColor: Colors.border,
+    borderRadius: 20,
   },
   touchBoxContainer:{
     width: Metrics.screenWidth,
@@ -314,7 +315,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: Metrics.screenWidth/3,
     height: Metrics.screenWidth/3,
-  },
+},
   boxIcon:{
     position:"relative",
     top:-10

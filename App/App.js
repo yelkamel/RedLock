@@ -58,7 +58,9 @@ export default class App extends Component {
           <SortableBox/>
         </View>
         <TouchableHighlight style={styles.backButton} onPress={this.exitApp}>
-          <Text> Retour </Text>
+          <Text style={{color: Colors.text}}> 
+            Retour 
+          </Text>
         </TouchableHighlight>
       </View>)
   }
@@ -75,7 +77,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background,
   },
   backButton: {
-    height: 20,
+    height: 25,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
