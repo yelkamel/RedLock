@@ -12,7 +12,6 @@ export default class MyLock extends Component{
     this.state = {
       password: '',
       hasSet: false,
-      enterApp: false,
     };
   }
 
@@ -24,9 +23,7 @@ export default class MyLock extends Component{
   }
 
   enterPassword = () => {
-    this.setState({
-      enterApp: true,
-    });
+    this.props.setEnterApp()
   }
 
   componentDidMount() {
@@ -35,39 +32,14 @@ export default class MyLock extends Component{
 
   render() {
     return(
-      <View style={styles.container}>
+      <View style={{flex:1}}>
         {!this.state.hasSet && 
           <NewPassword setPassword={this.setPassword} password={this.state.password}/>
         }
         {(this.state.hasSet&&!this.state.enterApp) &&
           <EnterPassword enterPassword={this.enterPassword} password={this.state.password}/>
         }
-        {this.state.enterApp && 
-          <View style={styles.app}><Text style={styles.appText}>Entrer réussi</Text></View>
-        }
       </View>
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container:{
-    backgroundColor:"transparent",
-    flex: 1,
-  },
-  setPg:{
-    backgroundColor:"#012642",
-  },
-  app:{
-    backgroundColor:"#012642",
-    height: Metrics.screenHeight,
-    width: Metrics.screenWidth,
-    alignItems:"center",
-    justifyContent:"center",
-  },
-  appText:{
-    color:"#fff",
-    fontSize:25,
-  }
-});
-

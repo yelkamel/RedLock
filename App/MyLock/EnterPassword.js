@@ -1,5 +1,6 @@
 import React,{ Component } from 'react';
 import { StatusBar,Image,StyleSheet,Text,View } from 'react-native';
+import { Metrics, Colors } from '../Themes';
 import PropTypes from 'prop-types';
 import PasswordGesture from 'react-native-gesture-password';
 
@@ -45,9 +46,9 @@ export default class EnterPassword extends Component{
     return (
       <PasswordGesture
         style = {styles.setPg}
-        ref='pg'
         status={this.state.status}
         message={this.state.message}
+        normalColor={Colors.basicLock}
         allowCross={true}
         onStart={() => this.onStart()}
         onEnd={(password) => this.onEnd(password)}
@@ -58,7 +59,7 @@ export default class EnterPassword extends Component{
 
 const styles = StyleSheet.create({
     setPg:{
-        backgroundColor:"#012642",
+        backgroundColor: 'transparent',
     },
 });
 

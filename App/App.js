@@ -3,10 +3,14 @@ import {
   Platform,
   StyleSheet,
   Text,
+  TouchableHighlight,
   View
 } from 'react-native';
 
-import MyLock from './Components/MyLock'
+import MyLock from './MyLock'
+import SortableBox from './SortableBox'
+import { Metrics, Colors } from './Themes';
+
 
 /*
 const instructions = Platform.select({
@@ -20,28 +24,64 @@ const instructions = Platform.select({
 
 
 export default class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      enterApp: false,
+    };
+  }
+
+  enterApp = () => {
+    this.setState({
+      enterApp: true
+    })
+  }
+
+  exitApp = () => {
+    this.setState({
+      enterApp: false
+    })
+  }
+
   render() {
+
+    if (!this.state.enterApp)
+      return (
+        <View style={styles.lockContainer}>
+          <MyLock setEnterApp={this.enterApp}/>
+        </View>
+      );
+
     return (
       <View style={styles.container}>
-        <MyLock/>
-      </View>
-    );
+        <View style={{flex:1}}>
+          <SortableBox/>
+        </View>
+        <TouchableHighlight style={styles.backButton} onPress={this.exitApp}>
+          <Text> Retour </Text>
+        </TouchableHighlight>
+      </View>)
   }
 }
 
 const styles = StyleSheet.create({
+  lockContainer: {
+    flex: 1,
+    backgroundColor: Colors.background,
+  },
   container: {
     flex: 1,
-    backgroundColor: '#F5FCFF',
+    alignItems: 'center',
+    backgroundColor: Colors.background,
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
+  backButton: {
+    height: 20,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
     margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    width: Metrics.screenWidth / 3,
+    backgroundColor: Colors.button,
+    borderRadius: 5,
+  }
 });

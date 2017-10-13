@@ -1,6 +1,7 @@
 import React,{ Component } from 'react';
 import { StatusBar,Image,StyleSheet,Text,View } from 'react-native';
 import PropTypes from 'prop-types';
+import { Metrics, Colors } from '../Themes';
 import PasswordGesture from 'react-native-gesture-password';
 
 export default class NewPassword extends Component{
@@ -57,7 +58,7 @@ export default class NewPassword extends Component{
     return (
       <PasswordGesture
         style = {styles.setPg}
-        ref='pg'
+        normalColor={Colors.basicLock}
         status={this.state.status}
         message={this.state.message}
         allowCross={true}
@@ -71,7 +72,7 @@ export default class NewPassword extends Component{
 
 const styles = StyleSheet.create({
   setPg:{
-    backgroundColor:"#012642",
+    backgroundColor: 'transparent',
   },
 });
   
