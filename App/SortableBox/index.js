@@ -4,7 +4,6 @@ import React,{ Component } from 'react';
 import { Image,StyleSheet,LayoutAnimation,Text,TouchableHighlight,PanResponder,View } from 'react-native';
 import { Metrics, Colors } from '../Themes';
 import Icon from 'react-native-vector-icons/Ionicons';
-import IconFA from 'react-native-vector-icons/FontAwesome';
 
 export default class SortableBox extends Component{
 
@@ -38,7 +37,6 @@ export default class SortableBox extends Component{
       days: [{
         key: 0,
         title: "A stopwatch",
-        isFA: false,
         icon: "ios-stopwatch",
         size: 48,
         color: "#ff856c",
@@ -46,7 +44,6 @@ export default class SortableBox extends Component{
       }, {
         key: 1,
         title: "A weather app",
-        isFA: false,
         icon: "ios-partly-sunny",
         size: 60,
         color: "#90bdc1",
@@ -54,63 +51,55 @@ export default class SortableBox extends Component{
       }, {
         key: 2,
         title: "twitter",
-        isFA: false,
         icon: "logo-twitter",
         size: 50,
         color: "#2aa2ef",
         hideNav: true,
       }, {
         key: 3,
-        title: "cocoapods",
-        isFA: true,
-        icon: "contao",
+        title: "logo Apple",
+        icon: "logo-apple",
         size: 50,
         color: "#FF9A05",
         hideNav: false,
       }, {
         key: 4,
-        title: "find my location",
-        isFA: false,
-        icon: "md-pin",
+        title: "apple store",
+        icon: "ios-appstore",
         size: 50,
         color: "#00D204",
         hideNav: false,
       }, {
         key: 5,
-        title: "Spotify",
-        isFA: true,
-        icon: "spotify",
+        title: "American Football",
+        icon: "ios-american-football",
         size: 50,
         color: "#777",
         hideNav: true,
       }, {
         key: 6,
         title: "Moveable Circle",
-        isFA: false,
         icon: "ios-baseball",
         size: 50,
         color: "#5e2a06",
         hideNav: true,
       }, {
         key: 7,
-        title: "Swipe Left Menu",
-        isFA: true,
-        icon: "google",
+        title: "Logo android",
+        icon: "logo-android",
         size: 50,
         color: "#4285f4",
         hideNav: true,
       }, {
         key: 8,
-        title: "Twitter Parallax View",
-        isFA: true,
-        icon: "twitter-square",
+        title: "bicycle",
+        icon: "ios-bicycle",
         size: 50,
         color: "#2aa2ef",
         hideNav: true,
       }, {
         key: 9,
         title: "Tumblr Menu",
-        isFA: false,
         icon: "logo-tumblr",
         size: 50,
         color: "#37465c",
@@ -118,7 +107,6 @@ export default class SortableBox extends Component{
       }, {
         key: 10,
         title: "OpenGL",
-        isFA: false,
         icon: "md-contrast",
         size: 50,
         color: "#2F3600",
@@ -126,7 +114,6 @@ export default class SortableBox extends Component{
       }, {
         key: 11,
         title: "charts",
-        isFA: false,
         icon: "ios-stats",
         size: 50,
         color: "#fd8f9d",
@@ -134,23 +121,20 @@ export default class SortableBox extends Component{
       }, {
         key: 12,
         title: "tweet",
-        isFA: false,
         icon: "md-chatboxes",
         size: 50,
         color: "#83709d",
         hideNav: true,
       }, {
         key: 13,
-        title: "tinder",
-        isFA: true,
-        icon: "fire",
+        title: "alerte",
+        icon: "ios-alert",
         size: 50,
         color: "#ff6b6b",
         hideNav: true,
       }, {
         key: 14,
         title: "Time picker",
-        isFA: false,
         icon: "ios-calendar-outline",
         size: 50,
         color: "#ec240e",
@@ -272,9 +256,8 @@ export default class SortableBox extends Component{
       return(
         <View ref={"box"+index} {...this._panResponder.panHandlers} key={elem.key} style={[styles.touchBox,{top,left}]} underlayColor="#eee">
           <View style={styles.boxContainer}>
-            <Text style={styles.boxText}>Day{index+1}</Text>
-            {elem.isFA? <IconFA size={elem.size} name={elem.icon} style={[styles.boxIcon,{color:elem.color}]}></IconFA>:
-              <Icon size={elem.size} name={elem.icon} style={[styles.boxIcon,{color:elem.color}]}></Icon>}
+            <Text style={styles.boxText}>Box {index+1}</Text>
+              <Icon size={elem.size} name={elem.icon} style={[styles.boxIcon,{color:elem.color}]}/>
           </View>
         </View>
       );
